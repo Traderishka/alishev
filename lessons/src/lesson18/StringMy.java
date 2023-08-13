@@ -2,8 +2,8 @@ package lesson18;
 
 public class StringMy {
     public static void main(String[] args) {
-        Person.defaultName = "Default name";
-        System.out.println(Person.getDefaultName());
+        Person.setTeamName("BelinWin");
+        System.out.println(Person.getTeamName());
 
         Person tom = new Person();
         tom.setName("");
@@ -17,6 +17,8 @@ public class StringMy {
 
         jarry.speaking();
 
+        jarry.setCountTeam();
+
     }
 
     private char[] stringMy;
@@ -25,7 +27,32 @@ public class StringMy {
 class Person {
     private int age;
     private String name;
-    public static String defaultName;
+    private static String teamName;
+
+    private static int countTeam;
+
+    public Person() {
+        countTeam++;
+    }
+
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+        countTeam++;
+    }
+
+
+    public static int getCountTeam() {
+        return countTeam;
+    }
+
+    public void setCountTeam() {
+        System.out.println(countTeam);
+    }
+
+    void speaking() {
+        System.out.println("my name is " + name + " and my " + age);
+    }
 
     public int getAge() {
         return age;
@@ -39,24 +66,24 @@ class Person {
         }
     }
 
-    public static String getDefaultName() {
-        return defaultName;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        if (name == null || name == "") {
-            this.name = defaultName;
+        if (name == null || name.isEmpty()) {
+            this.name = teamName;
         } else {
             this.name = name;
         }
     }
 
-    void speaking() {
-        System.out.println("my name is " + name + " and my " + age);
+    public static void setTeamName(String teamName) {
+        Person.teamName = teamName;
+    }
+
+    public static String getTeamName() {
+        return teamName;
     }
 
 }
