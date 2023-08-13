@@ -2,9 +2,11 @@ package lesson18;
 
 public class StringMy {
     public static void main(String[] args) {
+        Person.defaultName = "Default name";
+
         Person tom = new Person();
-        tom.getName("Tom");
-        tom.getAge(13);
+        tom.setName("");
+        tom.setAge(13);
 
         tom.speaking();
 
@@ -13,6 +15,7 @@ public class StringMy {
         jarry.setAge(-2);
 
         jarry.speaking();
+
     }
 
     private char[] stringMy;
@@ -21,12 +24,10 @@ public class StringMy {
 class Person {
     private int age;
     private String name;
+    public static String defaultName;
 
-    public int getAge(int age) {
-        if (age < 0) {
-          return this.age = 0;
-        }
-        return this.age = age;
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
@@ -37,16 +38,13 @@ class Person {
         }
     }
 
-    public String getName(String name) {
-        if (name == null || name == "") {
-          return this.name = "Name cannot equals null or empty";
-        }
-        return this.name=name;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         if (name == null || name == "") {
-            this.name = "Name cannot equals null or empty";
+            this.name = defaultName;
         } else {
             this.name = name;
         }
