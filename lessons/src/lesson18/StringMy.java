@@ -3,6 +3,7 @@ package lesson18;
 public class StringMy {
     public static void main(String[] args) {
         Person.defaultName = "Default name";
+        System.out.println(Person.getDefaultName());
 
         Person tom = new Person();
         tom.setName("");
@@ -36,6 +37,10 @@ class Person {
         } else {
             this.age = age;
         }
+    }
+
+    public static String getDefaultName() {
+        return defaultName;
     }
 
     public String getName() {
