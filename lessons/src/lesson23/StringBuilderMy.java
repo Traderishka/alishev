@@ -7,7 +7,7 @@ public class StringBuilderMy {
 //        System.out.println(uper);
         StringBuilder sb = new StringBuilder("Hello");
         System.out.println(sb.toString());
-        sb.append(" my ").append(10);// єтот метод ізменяет обьект string builder і возвращвет новий результат
+        sb.append(" my ").append(10);// єтот метод ізменяет обьsshект string builder і возвращвет новий результат
         System.out.println(sb.toString());
     }
 }
